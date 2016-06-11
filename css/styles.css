@@ -1,4 +1,39 @@
+.main {
+  background: pink;
+}
+
 #play {
   color: white;
   background: black;
+}
+
+#reveal-all-div {
+  z-index: 1;
+  position: absolute;
+  background: white;
+  width: 100%;
+  display: none;
+  height: 90vh;
+}
+
+#play-div {
+  z-index: 0;
+  position: absolute;
+  background: white;
+  width: 100%;
+  display: none;
+}
+
+#rules {
+  display: none;
+  margin: 20px auto 40px;
+  line-height: 200%;
+}
+
+#rules h3 {
+  color: white;
+}
+
+ul {
+  list-style-image: url("../img/ping-pong-ball.gif");
 }
