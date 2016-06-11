@@ -34,6 +34,18 @@
   color: white;
 }
 
-ul {
+ol {
+  list-style-image: url("../img/ping-pong-ball.gif");
+}
+
+ul li:nth-child(n) {
+  list-style-image: url("../img/paddle-blue.gif");
+}
+
+ul li:nth-child(2n) {
+  list-style-image: url("../img/paddle-red.gif");
+}
+
+ul li:last-child {
   list-style-image: url("../img/ping-pong-ball.gif");
 }
