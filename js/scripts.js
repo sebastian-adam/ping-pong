@@ -25,10 +25,13 @@ var gamePlay = function(counter, total, version, x, y) {
   return gameArray;
 }
 
-// Random number generator (number < userNumber)
+// Random number generator
 var randomizer = function() {
   return Math.floor((Math.random() * 10) + 1);
 }
+var randomNum1 = randomizer();
+var randomNum2 = randomizer();
+var randomNumProduct = randomNum1 * randomNum2;
 
 // Chooses button to act on
 var buttonChoice;
@@ -51,17 +54,13 @@ $(function() {
 
   $("button").on('click', function(event) {
     event.preventDefault();
-
     // Resets ul fields and array
     $("ul#play-field").empty();
     $("ul#reveal-all-field").empty();
     gameArray = [];
-    // Resets ul fields and array
+    // Stores user input
     var userNumber = parseInt($("#user-number").val());
-    var randomNum1 = randomizer();
-    var randomNum2 = randomizer();
-    var randomNumProduct = randomNum1 * randomNum2;
-
+    // Checks radio buttons and runs appropriate game style
     if (document.getElementById("traditional").checked) {
       var result = gamePlay(userNumber, userNumber, buttonChoice, 3, 5);
     } else if (document.getElementById("random").checked) {
@@ -70,7 +69,7 @@ $(function() {
       $("#random-num-2").text(randomNum2);
       $("#random-num-product").text(randomNumProduct);
     }
-
+    // Checks button choice and displays list items immediately or with delay
     var time = 1000;
     if (buttonChoice === 2) {
       window.location.reload();
