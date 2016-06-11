@@ -2,8 +2,6 @@
 
 // Runs the game
 var gameArray = [];
-
-
 var gamePlay = function(counter, total, version, x, y) {
   var alert = "TIME'S UP!";
   for (var i = 0; i <= total; i++) {
@@ -27,6 +25,11 @@ var gamePlay = function(counter, total, version, x, y) {
   return gameArray;
 }
 
+// Random number generator (number < userNumber)
+var randomizer = function() {
+  return Math.floor((Math.random() * 10) + 1);
+}
+
 // Chooses button to act on
 var buttonChoice;
 var buttonChoice = function(btn, val) {
@@ -48,15 +51,27 @@ $(function() {
 
   $("button").on('click', function(event) {
     event.preventDefault();
-    // Resets ul fields, array, and button tracker
+
+    // Resets ul fields and array
     $("ul#play-field").empty();
     $("ul#reveal-all-field").empty();
     gameArray = [];
-
+    // Resets ul fields and array
     var userNumber = parseInt($("#user-number").val());
-    var result = gamePlay(userNumber, userNumber, buttonChoice);
-    var time = 1000;
+    var randomNum1 = randomizer();
+    var randomNum2 = randomizer();
+    var randomNumProduct = randomNum1 * randomNum2;
 
+    if (document.getElementById("traditional").checked) {
+      var result = gamePlay(userNumber, userNumber, buttonChoice, 3, 5);
+    } else if (document.getElementById("random").checked) {
+      var result = gamePlay(userNumber, userNumber, buttonChoice, randomNum1, randomNum2);
+      $("#random-num-1").text(randomNum1);
+      $("#random-num-2").text(randomNum2);
+      $("#random-num-product").text(randomNumProduct);
+    }
+
+    var time = 1000;
     if (buttonChoice === 2) {
       window.location.reload();
     } else if (buttonChoice === 1) {

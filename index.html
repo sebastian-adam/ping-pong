@@ -17,19 +17,22 @@
         <div class="col-xs-6 main">
           <h3>Can you find the pattern before time's up?</h3>
           <p><em>Enter a number. The bigger the number, the more time to solve!</em></p>
-          <p>Click "PLAY" to see one number at a time.<br>Click "REVEAL ALL" to see the whole pattern and forfeit the game.</p>
+          <p>Click "PLAY" to see one number at a time.<br>Click "SEE ANSWER" to reveal rules and forfeit the game.</p>
           <label for="user-number"</label>
           <input id="user-number" type="text" placeholder="Enter a number">
           <button id="play" type="button" enabled>PLAY</button>
-          <button id="reveal-all" type="button">REVEAL ALL</button><br><br><br>
+          <button id="reveal-all" type="button">SEE ANSWER</button><br><br>
+          <label class="radio-inline"><input id="traditional" type="radio" name="type-of-game" val="1" checked="checked">Traditional</label>
+          <label class="radio-inline"><input id="random" type="radio" name="type-of-game" val="2">Pattern randomizer</label>
+          <br><br>
           <button id="reset" type="button">RESET TO PLAY AGAIN</button><br><br>
           <div id="rules">
             <hr>
             <ol>
               <h3>RULES</h3>
-              <li>Numbers divisible by 3 are replaced with "ping".</li>
-              <li>Numbers divisible by 5 are replaced with "pong".</li>
-              <li>Numbers divisible by 15 are replaced with "ping-pong".</li>
+              <li>Numbers divisible by <span id="random-num-1">3</span> are replaced with "ping".</li>
+              <li>Numbers divisible by <span id="random-num-2">5</span> are replaced with "pong".</li>
+              <li>Numbers divisible by <span id="random-num-product">15</span> are replaced with "ping-pong".</li>
             </ol>
           </div>
         </div>
